@@ -5,6 +5,7 @@ import helmet from "helmet";
 import dotenv from "dotenv";
 import middlewares from "./middlewares";
 import api from "./api";
+import auth from "./auth";
 
 dotenv.config();
 
@@ -24,6 +25,11 @@ app.get("/", (req, res) => {
     message: "Hello World - 👋🌏🌎🌍",
   });
 });
+
+/**
+ * Remove comment to enable auth verification to access the api
+ */
+// app.use("/auth", auth);
 
 app.use("/api/v1", api);
 
